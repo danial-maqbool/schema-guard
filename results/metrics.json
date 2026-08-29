@@ -1,0 +1,161 @@
+{
+  "n_samples": 40,
+  "by_mode": {
+    "clean": {
+      "raw": 1.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {}
+    },
+    "markdown fence": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "strip markdown fence": 40
+      }
+    },
+    "fence without language": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "strip markdown fence": 40
+      }
+    },
+    "wrapped in prose": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "slice to outermost brackets": 40
+      }
+    },
+    "trailing comma": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "remove trailing commas": 40
+      }
+    },
+    "python literals": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "python literals to json": 40
+      }
+    },
+    "single quotes": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "single to double quotes": 40
+      }
+    },
+    "unquoted keys": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "quote bare keys": 40
+      }
+    },
+    "smart quotes": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "normalise smart quotes": 40
+      }
+    },
+    "raw newline in string": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "escape raw newlines in strings": 40
+      }
+    },
+    "truncated": {
+      "raw": 0.0,
+      "repaired": 0.575,
+      "valid": 0.425,
+      "repairs_used": {
+        "close unterminated structures": 23
+      }
+    },
+    "fence + trailing comma": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "strip markdown fence": 40,
+        "remove trailing commas": 40
+      }
+    },
+    "prose + python literals": {
+      "raw": 0.0,
+      "repaired": 1.0,
+      "valid": 1.0,
+      "repairs_used": {
+        "slice to outermost brackets": 40,
+        "python literals to json": 40
+      }
+    }
+  },
+  "unrecovered": [
+    "truncated"
+  ],
+  "semantic": {
+    "missing required field": {
+      "ok": false,
+      "stage": "schema",
+      "coercions": [],
+      "issues": [
+        {
+          "field": "patient_ref",
+          "type": "missing",
+          "message": "Field required",
+          "recoverable": false
+        }
+      ]
+    },
+    "wrong type, unambiguous": {
+      "ok": true,
+      "stage": "valid",
+      "coercions": [
+        {
+          "field": "value",
+          "from": "str",
+          "to": "float",
+          "before": "5.1",
+          "after": 5.1
+        },
+        {
+          "field": "abnormal",
+          "from": "str",
+          "to": "bool",
+          "before": "true",
+          "after": true
+        }
+      ],
+      "issues": []
+    },
+    "wrong type, ambiguous": {
+      "ok": false,
+      "stage": "schema",
+      "coercions": [],
+      "issues": [
+        {
+          "field": "value",
+          "type": "float_parsing",
+          "message": "Input should be a valid number, unable to parse string as a number",
+          "recoverable": true
+        }
+      ]
+    }
+  }
+}
