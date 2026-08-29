@@ -33,4 +33,7 @@ packages = ["schema_guard"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# put the repo root on sys.path so a bare `pytest` works, not just
+# `python -m pytest` (which adds the cwd itself)
+pythonpath = ["."]
 filterwarnings = ["ignore::DeprecationWarning"]
