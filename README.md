@@ -48,7 +48,7 @@ and inventing it is exactly the behaviour this library exists to prevent.
 
 **1. Cheapest repair first, stop as soon as it parses.** Each rung is more
 invasive than the last, so the ladder stops at the least aggressive fix that
-works. Repairs apply *cumulatively*, because these failures co-occur — a fenced
+works. Repairs apply *cumulatively*, because these failures co-occur. A fenced
 response with a trailing comma needs both fixes, not the better one.
 
 ```python
@@ -101,7 +101,7 @@ g.issues    # [{'field': 'patient_ref', 'type': 'missing',
 ```
 
 `unparseable` is usually worth retrying. A `missing` required field usually is
-not — the model did not have the information. `recoverable` marks the
+not, because the model did not have the information. `recoverable` marks the
 difference so a pipeline does not burn calls on responses that cannot improve.
 
 When a retry *is* worth making, `retry_prompt` names the offending field:
@@ -132,7 +132,7 @@ run.py          regenerates results/
   state, so `{"a": "} not the end {"}` is not truncated at the brace inside the
   string. There is a test.
 - **A dangling key is dropped, not filled.** `{"a": 1, "b":` recovers as
-  `{"a": 1}` — `b` is absent rather than `null`, because the model never said
+  `{"a": 1}`, and `b` is absent rather than `null`, because the model never said
   what it was.
 - **A repair never raises.** A failing rung returns a typed failure; an
   exception escaping a repair function would be worse than the malformed input.
